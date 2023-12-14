@@ -1,6 +1,7 @@
 package com.example.furnitureapp;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,10 +44,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
 
         //Step 7
+        TextView textViewName = holder.textViewName;
+        TextView textViewVersion = holder.textViewVersion;
+        ImageView imageView = holder.imageViewIcon;
 
+        //Adding the data for text
+        textViewName.setText(dataSet.get(position).getName());
+        textViewVersion.setText(dataSet.get(position).getVersion());
+
+        //Adding the data for ImageView
+        //Adding Glide Library
 
     }
 
