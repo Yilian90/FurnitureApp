@@ -43,6 +43,21 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        // Getting Data from MyData Class
+        data = new ArrayList<DataModel>();
+        for (int i=0; i<MyData.nameArray.length; i++){
+            data.add(new DataModel(
+                    MyData.nameArray[i],
+                    MyData.versionArray[i],
+                    MyData.id_[i],
+                    MyData.drawableArray[i]
+            ));
+        }
+
+        //Let's Add the Adapter (Custom Adapter we will create now)
+        adapter = new CustomAdapter(data, this);
+        recyclerView.setAdapter(adapter);
+
 
     }
 }
