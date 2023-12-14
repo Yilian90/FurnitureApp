@@ -12,6 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
@@ -58,6 +62,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         //Adding the data for ImageView
         //Adding Glide Library
 
+        Glide.with(mContext)
+                .load(dataSet.get(position).getImage())
+                .apply(RequestOptions.bitmapTransform
+                        (new RoundedCorners(20)))
+                .into(imageView);
     }
 
     @Override
